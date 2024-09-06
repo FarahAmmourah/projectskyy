@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vacation Requests</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <style>
+      body {
+    background-color: #ffffff;
+    margin: 0;
+}
+
+.search-bar {
+    display: flex;
+    align-items: center;
+    border: 1px solid #ccc;
+    border-radius: 30px;
+    padding: 5px 15px;
+    width: 250px;
+    background-color: #f8f9fa;
+}
+
+.search-bar input {
+    border: none;
+    outline: none;
+    flex: 1;
+    background-color: transparent;
+    padding-left: 10px;
+}
+
+.search-bar i {
+    color: green;
+}
+
+.navbar {
+    position: sticky;
+    top: 0;
+}
+
+.custom-navbar {
+    background-color: rgba(37, 128, 62);
+}
+
+.custom-navbar .nav-link {
+    color: white !important;
+}
+
+.custom-navbar .nav-link.active {
+    color: rgb(255, 0, 0);
+}
+
+.strong {
+    font-weight: 600;
+}
+
+.card {
+    background-color: #f4f6f9;
+    padding: 15px;
+    border-radius: 0px;
+    box-shadow: 0px 2px 0px rgba(0, 0, 0, 0.1);
+}
+
+.container-page {
+    background-color: #d9d9d9;
+}
+
+/* Mobile-specific styles */
+@media (max-width: 767px) {
+    .vacation-card {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .card-body {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .d-grid {
+        display: flex;
+        justify-content: space-around;
+        margin-top: 20px;
+        width: 100%;
+    }
+
+    .search-bar {
+        width: 100%;
+    }
+
+    .navbar {
+        justify-content: space-between;
+    }
+}
+
+.strong-dark-gray {
+    font-weight: bold;
+    color: #272727; /* Dark gray */
+}
+
+    </style>
+</head>
+
+<body>
+    <!--NAVBAR -->
+    <div id="navbar-placeholder"></div>
+
+    <!--Requests-->
+    <div class="container mt-5">
+        <div class="vacation-container" id="vacationContainer">
+            <!-- HEADER VACATION -->
+            <div class="vacation-header d-flex align-items-center justify-content-between">
+                <!--NAME -->
+                <div class="d-flex align-items-center">
+                    <i class="fas fa-clipboard-list fa-2x mr-2"></i>
+                    <h5 class="mb-0">Vacation Requests</h5>
+                </div>
+                <!--SEARCH-->
+                <div class="search-bar d-flex align-items-center searchInput">
+                    <i class="fas fa-search"></i>
+                    <input type="text" onkeyup="filterRequests()" id="searchInput" placeholder="Search...">
+                </div>
+            </div>
+            <hr> <!-- Horizontal line under the section -->
+        
+        <hr>
+        <!-- Search and Filter -->
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <div><!--SELECT ALL-->
+                <input type="checkbox" id="select-all">
+                <label for="select-all">Select All</label>
+            </div>
+            <!--FILTER -->
+            <div class="d-flex"> 
+                <button class="btn btn-outline-secondary btn-sm">
+                    <i class="fas fa-filter fa-2x"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Cards Layout -->
+         
+        <div class="row" id="vacationContainer">
+            <div class="col-md-4 vacation-card mb-2">
+                <div class="card"><!--CARD 1-->
+                    <div class="card-body"><!--EMP DATA-->
+                        <div class="d-flex mb-3 align-items-center"><!--NAME AND IMAGE -->
+                            <input class="form-check-input" type="checkbox" value="1">
+                            <img src="https://w7.pngwing.com/pngs/130/766/png-transparent-techture-job-user-profile-linkedin-skill-akshay-kumar-miscellaneous-architect-linkedin.png" alt="Profile Image" class="rounded-circle me-3" width="50" height="50">
+                            <h5 class="mb-0">Ahmad Attar</h5>
+                        </div>
+                        <p style="font-weight: bold; color: #666b67;">Submitted on:</p>
+                        <p class="strong-dark-gray">1/3/2024</p>
+                        <p style="font-weight: bold; color: #666b67;">Duration: </p>
+                        <p class="strong-dark-gray"> 2 Weeks (1/4/2023 - 14/4/2023)</p>
+                        <p style="font-weight: bold; color: #666b67;">Salary: </p>
+                        <p class="strong-dark-gray">1000 AED</p>
+                        <div class="d-grid gap-2 d-md-block">
+                            <button class="btn btn-success me-2">Approve</button>
+                            <button type="button" class="btn btn-outline-success">Decline</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 vacation-card">
+                <div class="card"><!--CARD 2-->
+                    <div class="card-body"><!--EMP DATA-->
+                        <div class="d-flex mb-3 align-items-center"><!--EMP DATA-->
+                     <input class="form-check-input" type="checkbox" value="1">
+                            <img src="https://easy-peasy.ai/cdn-cgi/image/quality=80,format=auto,width=700/https://fdczvxmwwjwpwbeeqcth.supabase.co/storage/v1/object/public/images/50dab922-5d48-4c6b-8725-7fd0755d9334/3a3f2d35-8167-4708-9ef0-bdaa980989f9.png" alt="Profile Image" class="rounded-circle me-3" width="50" height="50">
+                            <h5 class="mb-0">Eric Griffin</h5>
+                        </div>
+                        <p style="font-weight: bold; color: #666b67;">Submitted on:</p>
+                        <p class="strong-dark-gray">1/3/2024</p>
+                        <p style="font-weight: bold; color: #666b67;">Duration: </p>
+                        <p class="strong-dark-gray"> 2 Weeks (1/4/2023 - 14/4/2023)</p>
+                        <p style="font-weight: bold; color: #666b67;">Salary: </p>
+                        <p class="strong-dark-gray">1000 AED</p>
+                        <div class="d-grid gap-2 d-md-block">
+                            <button class="btn btn-success me-2">Approve</button>
+                            <button type="button" class="btn btn-outline-success">Decline</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 vacation-card">
+                <div class="card"><!--CARD 3-->
+                    <div class="card-body"><!--EMP DATA-->
+                        <div class="d-flex mb-3 align-items-center"><!--NAME AND IMAGE -->
+                         <input class="form-check-input" type="checkbox" value="1">
+                            <img src="data:image/jpeg;base64,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" alt="Profile Image" class="rounded-circle me-3" width="50" height="50">
+                            <h5 class="mb-0">Zachary Murphy</h5>
+                        </div>
+                        <p style="font-weight: bold; color: #666b67;">Submitted on:</p>
+                        <p class="strong-dark-gray">1/3/2024</p>
+                        <p style="font-weight: bold; color: #666b67;">Duration: </p>
+                        <p class="strong-dark-gray"> 2 Weeks (1/4/2023 - 14/4/2023)</p>
+                        <p style="font-weight: bold; color: #666b67;">Salary: </p>
+                        <p class="strong-dark-gray">1000 AED</p>
+                        <div class="d-grid gap-2 d-md-block">
+                            <button class="btn btn-success me-2">Approve</button>
+                            <button type="button" class="btn btn-outline-success">Decline</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 vacation-card">
+                <div class="card"><!--CARD 4-->
+                    <div class="card-body"><!--EMP DATA-->
+                        <div class="d-flex mb-3 align-items-center"><!--NAME AND IMAGE -->
+                        <input class="form-check-input" type="checkbox" value="1">
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRnpzFF99w4wsBZRN8YzPGEJTm8pMYOLTXo0K_Qey-kwlfnh8nDwWgpUYGUwVU5b-a3LOE&usqp=CAU" alt="Profile Image" class="rounded-circle me-3" width="50" height="50">
+                            <h5 class="mb-0">Sean Hunt</h5>
+                        </div>
+                        <p style="font-weight: bold; color: #666b67;">Submitted on:</p>
+                        <p class="strong-dark-gray">1/3/2024</p>
+                        <p style="font-weight: bold; color: #666b67;">Duration: </p>
+                        <p class="strong-dark-gray"> 2 Weeks (1/4/2023 - 14/4/2023)</p>
+                        <p style="font-weight: bold; color: #666b67;">Salary: </p>
+                        <p class="strong-dark-gray">1000 AED</p>
+                        <div class="d-grid gap-2 d-md-block">
+                            <button class="btn btn-success me-2">Approve</button>
+                            <button type="button" class="btn btn-outline-success">Decline</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 vacation-card">
+                <div class="card"><!--CARD 5-->
+                    <div class="card-body"><!--EMP DATA-->
+                        <div class="d-flex mb-3 align-items-center">  <!--NAME AND IMAGE -->
+                         <input class="form-check-input" type="checkbox" value="1">
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTndnWIx3w0gvAmvUhcAF8X5YFyg7VWOP1tEp_8FtCqDX_eGvr4uUUO25D_AvMNcseFhN0&usqp=CAU" alt="Profile Image" class="rounded-circle me-3" width="50" height="50">
+                            <h5 class="mb-0">Victor Wells</h5>
+                        </div>
+                        <p style="font-weight: bold; color: #666b67;">Submitted on:</p>
+                        <p class="strong-dark-gray">1/3/2024</p>
+                        <p style="font-weight: bold; color: #666b67;">Duration: </p>
+                        <p class="strong-dark-gray"> 2 Weeks (1/4/2023 - 14/4/2023)</p>
+                        <p style="font-weight: bold; color: #666b67;">Salary: </p>
+                        <p class="strong-dark-gray">1000 AED</p>
+                        <div class="d-grid gap-2 d-md-block">
+                            <button class="btn btn-success me-2">Approve</button>
+                            <button type="button" class="btn btn-outline-success">Decline</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 vacation-card">
+                <div class="card"><!--CARD 6-->
+                    <div class="card-body"><!--EMP DATA-->
+                        <div class="d-flex mb-3 align-items-center"><!--NAME AND IMAGE -->
+                        <input class="form-check-input" type="checkbox" value="1">
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSwBG16g5gXPv-feovdsvCGdJYt8UxQmanAwWeeGIpy2Xd03gtq9rKfSZVMP98EtC10Jhs&usqp=CAU" alt="Profile Image" class="rounded-circle me-3" width="50" height="50">
+                            <h5 class="mb-0">Derek Stone</h5>
+                        </div>
+                        <p style="font-weight: bold; color: #666b67;">Submitted on:</p>
+                        <p class="strong-dark-gray">1/3/2024</p>
+                        <p style="font-weight: bold; color: #666b67;">Duration: </p>
+                        <p class="strong-dark-gray"> 2 Weeks (1/4/2023 - 14/4/2023)</p>
+                        <p style="font-weight: bold; color: #666b67;">Salary: </p>
+                        <p class="strong-dark-gray">1000 AED</p>
+                        <div class="d-grid gap-2 d-md-block">
+                            <button class="btn btn-success me-2">Approve</button>
+                            <button type="button" class="btn btn-outline-success">Decline</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 vacation-card">
+                <div class="card"><!--CARD 7-->
+                    <div class="card-body"><!--EMP DATA-->
+                        <div class="d-flex mb-3 align-items-center"><!--NAME AND IMAGE -->
+                        <input class="form-check-input" type="checkbox" value="1">
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcThglveVb0FzpzwUv_nCBMULJv9VU2lNAPHmdGhnSmYJ2vn46ofrJkIEuvpdchMXMX0Jns&usqp=CAU" alt="Profile Image" class="rounded-circle me-3" width="50" height="50">
+                            <h5 class="mb-0">Gregory Daniels</h5>
+                        </div>
+                        <p style="font-weight: bold; color: #666b67;">Submitted on:</p>
+                        <p class="strong-dark-gray">1/3/2024</p>
+                        <p style="font-weight: bold; color: #666b67;">Duration: </p>
+                        <p class="strong-dark-gray"> 2 Weeks (1/4/2023 - 14/4/2023)</p>
+                        <p style="font-weight: bold; color: #666b67;">Salary: </p>
+                        <p class="strong-dark-gray">1000 AED</p>
+                        <div class="d-grid gap-2 d-md-block">
+                            <button class="btn btn-success me-2">Approve</button>
+                            <button type="button" class="btn btn-outline-success">Decline</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-4 vacation-card">
+                <div class="card"><!--CARD 8-->
+                    <div class="card-body"><!--EMP DATA-->
+                        <div class="d-flex mb-3 align-items-center"><!--NAME AND IMAGE -->
+                         <input class="form-check-input" type="checkbox" value="1">
+                            <img src="https://w7.pngwing.com/pngs/130/766/png-transparent-techture-job-user-profile-linkedin-skill-akshay-kumar-miscellaneous-architect-linkedin.png" alt="Profile Image" class="rounded-circle me-3" width="50" height="50">
+                            <h5 class="mb-0">Zachary Murphy</h5>
+                        </div>
+                        <p style="font-weight: bold; color: #666b67;">Submitted on:</p>
+                        <p class="strong-dark-gray">1/3/2024</p>
+                        <p style="font-weight: bold; color: #666b67;">Duration: </p>
+                        <p class="strong-dark-gray"> 2 Weeks (1/4/2023 - 14/4/2023)</p>
+                        <p style="font-weight: bold; color: #666b67;">Salary: </p>
+                        <p class="strong-dark-gray">1000 AED</p>
+                        <div class="d-grid gap-2 d-md-block">
+                            <button class="btn btn-success me-2">Approve</button>
+                            <button type="button" class="btn btn-outline-success">Decline</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 vacation-card mb-2">
+                <div class="card"><!--CARD 9-->
+                    <div class="card-body"><!--EMP DATA-->
+                        <div class="d-flex mb-3 align-items-center"><!--NAME AND IMAGE -->
+                        <input class="form-check-input" type="checkbox" value="1">
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRCWG18FMyS1pXtWKr4Eb7_XLr0lScrVylmpg&s" alt="Profile Image" class="rounded-circle me-3" width="50" height="50">
+                            <h5 class="mb-0">Sean Hunt</h5>
+                        </div>
+                        <p style="font-weight: bold; color: #666b67;">Submitted on:</p>
+                        <p class="strong-dark-gray">1/3/2024</p>
+                        <p style="font-weight: bold; color: #666b67;">Duration: </p>
+                        <p class="strong-dark-gray"> 2 Weeks (1/4/2023 - 14/4/2023)</p>
+                        <p style="font-weight: bold; color: #666b67;">Salary: </p>
+                        <p class="strong-dark-gray">1000 AED</p>
+                        <div class="d-grid gap-2 d-md-block">
+                            <button class="btn btn-success me-2">Approve</button>
+                            <button type="button" class="btn btn-outline-success">Decline</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Add more cards here as needed -->
+        </div>
+        <div class="container-page">
+        <!-- Pagination Wrapped in a Container with Background Color -->
+        <div class="container bg-light py-3 mt-4 d-flex justify-content-center">
+            <nav aria-label="Page navigation example">
+                <!--SWAP PAGES-->
+                <ul class="pagination rounded-pill justify-content-center" style="background-color: #d3d3d3; padding: 10px;">
+                    <li class="page-item">
+                        <a class="page-link text-dark" href="#" style="background-color: transparent; border: none;">
+                            <i class="fas fa-chevron-left"></i>
+                        </a>
+                    </li>
+                    <li class="page-item">
+                        <a class="page-link text-dark" href="#" style="background-color: transparent; border: none;">1</a>
+                    </li>
+                    <li class="page-item">
+                        <a class="page-link text-dark" href="/projectsky/page2.html" style="background-color: transparent; border: none;">2</a>
+                    </li>
+                    <li class="page-item">
+                        <a class="page-link text-dark" href="/projectsky/page3.html" style="background-color: transparent; border: none;">3</a>
+                    </li>
+                    <li class="page-item">
+                        <a class="page-link text-dark" href="#" style="background-color: transparent; border: none;">
+                            <i class="fas fa-chevron-right"></i>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+
+</div>
+    </div>
+
+    <script src="script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <!--SEARCH FUNCTION-->
+    <script>
+        const filterRequests = () => {
+    const searchbox = document.getElementById("searchInput").value.toUpperCase();
+    const requestItems = document.getElementById("vacationContainer");
+    const cards = document.querySelectorAll(".vacation-card");
+    const requestNames = requestItems.getElementsByTagName("h5");
+
+    for (let i = 0; i < requestNames.length; i++) {
+        let match = cards[i].getElementsByTagName('h5')[0];
+
+        if (match) {
+            let textvalue = match.textContent || match.innerHTML;
+
+            if (textvalue.toUpperCase().indexOf(searchbox) > -1) {
+                cards[i].style.display = ""; // Show card if match
+            } else {
+                cards[i].style.display = "none"; // Hide card if no match
+            }
+        }
+    }
+};
+    </script>
+    <!--SELECT ALL FUNCTION -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const selectAllCheckbox = document.getElementById('select-all');
+            const employeeCheckboxes = document.querySelectorAll('.form-check-input');
+    
+            // When "Select All" is clicked
+            selectAllCheckbox.addEventListener('change', function() {
+                employeeCheckboxes.forEach(function(checkbox) {
+                    checkbox.checked = selectAllCheckbox.checked; // Set all checkboxes to match the "Select All" checkbox
+                });
+            });
+        });
+    </script>
+    <!--SHARED NAVBAR-->
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+    fetch('navbar.html')  // Fetch only the navbar fragment
+      .then(response => {
+        if (response.ok) {
+          return response.text();
+        } else {
+          throw new Error('Error loading navbar');
+        }
+      })
+      .then(data => {
+        document.getElementById('navbar-placeholder').innerHTML = data;
+      })
+      .catch(error => console.error('Error:', error));
+  });
+    </script>
+    
+    
+</body>
+
+</html>

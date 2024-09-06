@@ -1,0 +1,58 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-success fixed-top" id="navbar-placeholder">
+    <a class="navbar-brand text-white" href="/projectsky/SKY.html">Sky Academy</a>
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <!-- Left side: Sky Academy and Navigation Links -->
+        <ul class="navbar-nav mr-auto"><!--MENU ITEMS-->
+            <li class="nav-item">
+                <a class="nav-link text-white font-weight-bold" href="/projectsky/SKY.html">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-white" href="/projectsky/profile.html">Profiles</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-white" href="reports.html">Reports</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-white" href="settings.html">Settings</a>
+            </li>
+        </ul>
+
+        <!-- Right side: Icons (Bell and User) -->
+        <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+                <a class="nav-link text-white" href="#"><i class="fas fa-bell"></i></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-white" href="#"><i class="fas fa-user"></i></a>
+            </li>
+        </ul>
+    </div>
+</nav>
+ <!--SHARED NAVBAR TO ALL PAGES-->
+<script>
+    // Get all the nav links
+    const navLinks = document.querySelectorAll('.nav-link');
+    const currentURL = window.location.href.split('/').pop(); // Get the current file name
+
+    console.log("Current URL file:", currentURL); // Log to debug if it's capturing correctly
+
+    navLinks.forEach(link => {
+        const linkURL = link.href.split('/').pop(); // Get the file name of the link href
+
+        console.log("Link URL file:", linkURL); // Log to debug the href file name
+
+        // Compare the current file name with each link href file name
+        if (currentURL === linkURL) {
+            link.classList.add('active', 'font-weight-bold');
+        } else {
+            link.classList.remove('active', 'font-weight-bold');
+        }
+    });
+</script>
+
